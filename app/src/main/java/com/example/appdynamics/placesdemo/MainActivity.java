@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.appdynamics.eumagent.runtime.Instrumentation;
 import com.google.api.services.civicinfo.model.GeographicDivision;
 import com.google.api.services.civicinfo.model.Office;
 import com.google.api.services.civicinfo.model.Official;
@@ -40,6 +41,14 @@ public class MainActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+
+/*
+        // Enable AppDynamics Instrumentation
+        Instrumentation.start("<application_key>",
+                              getApplicationContext(),
+                              "<host_name>",
+                              true);
+*/
     }
 
     @Override
