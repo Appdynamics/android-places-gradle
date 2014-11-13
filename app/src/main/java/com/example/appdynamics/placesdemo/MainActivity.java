@@ -12,10 +12,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.appdynamics.eumagent.runtime.Instrumentation;
+
 import com.google.api.services.civicinfo.model.GeographicDivision;
 import com.google.api.services.civicinfo.model.Office;
 import com.google.api.services.civicinfo.model.Official;
@@ -42,13 +44,11 @@ public class MainActivity extends Activity {
                     .commit();
         }
 
-/*
         // Enable AppDynamics Instrumentation
-        Instrumentation.start("<application_key>",
+        Instrumentation.start("EUM-AAB-AUA",
                               getApplicationContext(),
-                              "<host_name>",
+                              "http://pm-demo.appdynamics.com/",
                               true);
-*/
     }
 
     @Override
@@ -145,7 +145,18 @@ public class MainActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     final String searchAddress = mAddress.getText().toString();
+
                     Log.d(TAG, "searchAddress: " + searchAddress);
+
+                    try  {
+                        mLatitude.setText("");
+                        mLongitude.setText("");
+                        mElevation.setText("");
+                        mOfficials.setAdapter(null);
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     if (! searchAddress.isEmpty()) {
                         try {
                             // Check for Geolocation information first
