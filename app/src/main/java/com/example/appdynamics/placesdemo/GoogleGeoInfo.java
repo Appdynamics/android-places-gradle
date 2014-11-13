@@ -6,6 +6,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -231,7 +232,8 @@ public abstract class GoogleGeoInfo {
 
             conn = (HttpURLConnection) url.openConnection();
 
-            InputStreamReader in = new InputStreamReader(conn.getInputStream());
+            InputStream inputStream = conn.getInputStream();
+            InputStreamReader in = new InputStreamReader(inputStream);
 
             int read;
             char[] buff = new char[1024];
