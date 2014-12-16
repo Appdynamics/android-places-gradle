@@ -1,13 +1,10 @@
 buildscript {
     repositories {
         mavenCentral()
-
-        maven {
-            url uri('adeum-maven-repo')
-        }
+        mavenLocal()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.14.1'
+        classpath 'com.android.tools.build:gradle:1.0.0'
         classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.0'
         classpath 'com.appdynamics:appdynamics-gradle-plugin:2.0'
 
@@ -19,13 +16,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'adeum'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.1"
+    compileSdkVersion 17
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
         applicationId "com.example.appdynamics.placesdemo"
         minSdkVersion 15
-        targetSdkVersion 21
+        targetSdkVersion 17
         versionCode 1
         versionName "1.0"
     }
@@ -43,10 +40,7 @@ dependencies {
 
 repositories {
     mavenCentral()
-
-    maven {
-        url uri('adeum-maven-repo')
-    }
+    mavenLocal()
 }
 
 dependencies {
