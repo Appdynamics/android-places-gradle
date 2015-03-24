@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
         // Enable AppDynamics Instrumentation
         Instrumentation.start("EUM-AAB-AUA",
                               getApplicationContext(),
-                              "http://pm-demo.appdynamics.com/",
+                              "http://52.74.9.198/",
                               true);
     }
 
